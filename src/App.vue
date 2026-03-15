@@ -1,12 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue';
 
-const currentTime = ref(Date.now());
+const currentDate = computed(() => {
+  return new Date().toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+});
 </script>
 
 <template>
   <div class="box">
-    <h1>15.03.2026</h1>
+    <h1>{{ currentDate }}</h1>
   </div>
 </template> 
 
